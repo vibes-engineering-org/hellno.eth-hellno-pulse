@@ -15,10 +15,10 @@ export function AddMiniappButton({
   variant = "default",
   className,
 }: AddMiniAppButtonProps) {
-  const { sdk, isMiniAppSaved } = useMiniAppSdk();
+  const { pinFrame, isMiniAppSaved } = useMiniAppSdk();
 
   const onAddMiniApp = () => {
-    sdk.actions.addMiniApp();
+    pinFrame();
   };
 
   return (

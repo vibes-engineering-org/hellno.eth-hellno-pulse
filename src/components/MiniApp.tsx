@@ -2,9 +2,13 @@
 
 import { useFrameSDK } from "~/hooks/useFrameSDK";
 import { Button } from "~/components/ui/button";
+import { AddMiniappButton } from "~/components/add-miniapp-button";
+import { ShareCastButton } from "~/components/share-cast-button";
 
 export default function MiniApp() {
   const { isSDKLoaded, pinFrame, notificationDetails } = useFrameSDK();
+  // determine current URL for sharing
+  const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
 
   if (!isSDKLoaded) {
     return <div>Loading...</div>;
@@ -37,6 +41,19 @@ export default function MiniApp() {
           You are subscribed to notifications!
         </p>
       )}
+      {/* Add Miniapp and Share Cast building blocks */}
+      <div className="mt-8 flex flex-col sm:flex-row gap-4">
+        <AddMiniappButton
+          text="Save Mini App"
+          textDone="Saved"
+          variant="default"
+        />
+        <ShareCastButton
+          text="Check out hellno home mini app!"
+          url={currentUrl}
+          variant="default"
+        />
+      </div>
     </div>
   );
 }
