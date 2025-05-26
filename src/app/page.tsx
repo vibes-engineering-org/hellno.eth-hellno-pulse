@@ -10,13 +10,13 @@ const frame = {
   version: "next",
   imageUrl: `${appUrl}/opengraph-image`,
   button: {
-    title: "Launch Frame",
+    title: `Open ${PROJECT_TITLE}`,
     action: {
       type: "launch_frame",
       name: PROJECT_TITLE,
       url: appUrl,
       splashImageUrl: `${appUrl}/splash.png`,
-      splashBackgroundColor: "#f7f7f7",
+      splashBackgroundColor: "#000000",
     },
   },
 };
