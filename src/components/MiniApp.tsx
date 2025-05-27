@@ -15,46 +15,51 @@ export default function MiniApp() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-black text-white p-4">
-      <h1 className="text-4xl sm:text-6xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent mb-4">
-        hellno home
-      </h1>
-      <p className="text-lg sm:text-xl text-gray-300 mb-8 text-center">
-        Stay up to date with my latest streams and shenanigans. Subscribe for Farcaster notifications and follow me on Twitch.
-      </p>
-      <div className="flex flex-col sm:flex-row gap-4">
-        <AddMiniappButton
-          text="Subscribe"
-          textDone="Subscribed"
-          variant="secondary"
-        />
-        <Button asChild variant="outline">
-          <a
-            href="https://twitch.tv/hellnoTV"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Follow on Twitch
-          </a>
-        </Button>
-      </div>
-      {notificationDetails && (
-        <p className="mt-4 text-green-400 text-sm">
-          You are subscribed to notifications!
+    <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-[#0f0c29] via-[#302b63] to-[#24243e] text-white p-4">
+      <div className="absolute top-0 left-0 w-80 h-80 bg-pink-600 rounded-full filter blur-2xl opacity-30 animate-pulse"></div>
+      <div className="absolute bottom-0 right-0 w-72 h-72 bg-indigo-600 rounded-full filter blur-2xl opacity-30"></div>
+      <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-cyan-600 rounded-full filter blur-3xl opacity-20 -translate-x-1/2 -translate-y-1/2"></div>
+      <div className="relative flex flex-col items-center justify-center z-10">
+        <h1 className="animate-pulse text-4xl sm:text-6xl font-extrabold bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 bg-clip-text text-transparent mb-4">
+          hellno home
+        </h1>
+        <p className="text-lg sm:text-xl text-gray-400 mb-8 text-center max-w-md">
+          Stay up to date with my latest streams and shenanigans. Subscribe for Farcaster notifications and follow me on Twitch.
         </p>
-      )}
-      {/* Add Miniapp and Share Cast building blocks */}
-      <div className="mt-8 flex flex-col sm:flex-row gap-4">
-        <AddMiniappButton
-          text="Save Mini App"
-          textDone="Saved"
-          variant="default"
-        />
-        <ShareCastButton
-          text="Check out hellno home mini app!"
-          url={currentUrl}
-          variant="default"
-        />
+        <div className="flex flex-col sm:flex-row gap-4">
+          <AddMiniappButton
+            text="Subscribe"
+            textDone="Subscribed"
+            variant="default"
+            className="bg-gradient-to-r from-pink-500 to-purple-500 text-white shadow-[0_0_10px_rgba(219,39,119,0.6)] hover:from-pink-400 hover:to-purple-400"
+          />
+          <Button
+            asChild
+            variant="ghost"
+            className="border border-cyan-500 text-cyan-400 hover:bg-cyan-500 hover:text-white shadow-[0_0_8px_rgba(6,182,212,0.6)]"
+          >
+            <a
+              href="https://twitch.tv/hellnoTV"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Follow on Twitch
+            </a>
+          </Button>
+        </div>
+        {notificationDetails && (
+          <p className="mt-4 text-green-400 text-sm">
+            You are subscribed to notifications!
+          </p>
+        )}
+        <div className="mt-8 flex flex-col sm:flex-row gap-4">
+          <ShareCastButton
+            text="🚀 Check out hellno home – a cyberpunk vibey mini app!"
+            url={currentUrl}
+            variant="default"
+            className="bg-gradient-to-r from-purple-500 to-cyan-500 text-white shadow-[0_0_10px_rgba(131,58,180,0.6)] hover:from-purple-400 hover:to-cyan-400"
+          />
+        </div>
       </div>
     </div>
   );
