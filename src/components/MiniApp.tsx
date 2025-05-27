@@ -6,7 +6,7 @@ import { AddMiniappButton } from "~/components/add-miniapp-button";
 import { ShareCastButton } from "~/components/share-cast-button";
 
 export default function MiniApp() {
-  const { isSDKLoaded, pinFrame, notificationDetails } = useFrameSDK();
+  const { isSDKLoaded, notificationDetails } = useFrameSDK();
   // determine current URL for sharing
   const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
 
@@ -23,9 +23,11 @@ export default function MiniApp() {
         Stay up to date with my latest streams and shenanigans. Subscribe for Farcaster notifications and follow me on Twitch.
       </p>
       <div className="flex flex-col sm:flex-row gap-4">
-        <Button onClick={pinFrame} variant="secondary">
-          {notificationDetails ? 'Subscribed' : 'Subscribe'}
-        </Button>
+        <AddMiniappButton
+          text="Subscribe"
+          textDone="Subscribed"
+          variant="secondary"
+        />
         <Button asChild variant="outline">
           <a
             href="https://twitch.tv/hellnoTV"
